@@ -1,0 +1,276 @@
+/* ============================================
+   Mexican Harvest — Estilos globales
+   ============================================ */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  font-family: var(--fuente-texto);
+  background-color: var(--color-crema);
+  color: var(--color-tinta);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Textura sutil de papel sobre todo el sitio */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2000;
+  opacity: 0.35;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.17 0 0 0 0 0.11 0 0 0 0 0.07 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23g)'/%3E%3C/svg%3E");
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: var(--fuente-titulos);
+  font-weight: 600;
+  line-height: 1.12;
+  color: var(--color-tinta);
+}
+
+a {
+  color: var(--color-vino);
+  text-decoration: none;
+  transition: color var(--transicion-suave);
+}
+
+a:hover {
+  color: var(--color-vino-oscuro);
+}
+
+img {
+  max-width: 100%;
+}
+
+::selection {
+  background-color: var(--color-vino);
+  color: var(--color-crema);
+}
+
+/* ---------- Utilidades de marca ---------- */
+
+.seccion {
+  padding-block: var(--seccion-espacio);
+  position: relative;
+}
+
+.seccion-crema-oscuro {
+  background-color: var(--color-crema-oscuro);
+}
+
+.seccion-tinta {
+  background-color: var(--color-tinta);
+  color: var(--color-crema);
+}
+
+.seccion-tinta h2,
+.seccion-tinta h3 {
+  color: var(--color-crema);
+}
+
+/* Etiqueta pequeña en mayúsculas, estilo "COSECHA DE MÉXICO" */
+.etiqueta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--color-vino);
+  margin-bottom: 1.1rem;
+}
+
+.etiqueta::before {
+  content: "";
+  width: 34px;
+  height: 1px;
+  background-color: currentColor;
+}
+
+.seccion-tinta .etiqueta {
+  color: var(--color-miel);
+}
+
+.titulo-seccion {
+  font-size: clamp(2rem, 4.2vw, 3.1rem);
+  margin-bottom: 1rem;
+}
+
+.titulo-seccion em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--color-vino);
+}
+
+.seccion-tinta .titulo-seccion em {
+  color: var(--color-miel);
+}
+
+.texto-suave {
+  color: rgba(43, 29, 18, 0.72);
+}
+
+.seccion-tinta .texto-suave {
+  color: rgba(244, 237, 221, 0.72);
+}
+
+/* Separador punteado, como su bitácora de café */
+.separador-punteado {
+  border: none;
+  border-top: var(--borde-punteado);
+  margin: 0;
+  opacity: 1;
+}
+
+/* ---------- Botones ---------- */
+
+.boton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--fuente-texto);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.95rem 1.9rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  transition: transform var(--transicion-suave), background-color var(--transicion-suave),
+    color var(--transicion-suave), border-color var(--transicion-suave);
+}
+
+.boton:hover {
+  transform: translateY(-2px);
+}
+
+.boton-vino {
+  background-color: var(--color-vino);
+  color: var(--color-crema-claro);
+}
+
+.boton-vino:hover {
+  background-color: var(--color-vino-oscuro);
+  color: var(--color-blanco);
+}
+
+.boton-contorno {
+  border-color: var(--color-tinta);
+  color: var(--color-tinta);
+}
+
+.boton-contorno:hover {
+  background-color: var(--color-tinta);
+  color: var(--color-crema);
+}
+
+.seccion-tinta .boton-contorno {
+  border-color: var(--color-crema);
+  color: var(--color-crema);
+}
+
+.seccion-tinta .boton-contorno:hover {
+  background-color: var(--color-crema);
+  color: var(--color-tinta);
+}
+
+/* ---------- Botón volver arriba ---------- */
+
+.volver-arriba {
+  position: fixed;
+  right: 1.4rem;
+  bottom: 5.8rem;
+  z-index: 1050;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid var(--color-tinta);
+  background-color: var(--color-crema);
+  color: var(--color-tinta);
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all var(--transicion-suave);
+}
+
+.volver-arriba.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.volver-arriba:hover {
+  background-color: var(--color-tinta);
+  color: var(--color-crema);
+}
+
+/* ---------- Botón flotante de WhatsApp ---------- */
+
+.boton-whatsapp {
+  position: fixed;
+  right: 1.4rem;
+  bottom: 1.4rem;
+  z-index: 1050;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background-color: #25d366;
+  color: #fff;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 10px 24px -8px rgba(37, 211, 102, 0.7);
+  transition: transform var(--transicion-suave);
+}
+
+.boton-whatsapp:hover {
+  transform: scale(1.08);
+  color: #fff;
+}
+
+/* ---------- Animaciones de aparición ---------- */
+
+.revelar {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.revelar.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.revelar-retraso-1 { transition-delay: 0.12s; }
+.revelar-retraso-2 { transition-delay: 0.24s; }
+.revelar-retraso-3 { transition-delay: 0.36s; }
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .revelar {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Accesibilidad: foco visible */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--color-miel);
+  outline-offset: 2px;
+}

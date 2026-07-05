@@ -1,0 +1,407 @@
+/* ============================================
+   Mexican Harvest — Página de menú
+   Carta oscura estilo pizarrón de especialidad:
+   texto crema, precios dorados, fotografía fija
+   al costado y navegación por categorías.
+   ============================================ */
+
+/* Encabezado de páginas interiores */
+.cabecera-pagina {
+  padding-block: clamp(3.5rem, 7vw, 5.5rem);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cabecera-pagina .titulo-pagina {
+  font-size: clamp(2.6rem, 5.5vw, 4.2rem);
+}
+
+.cabecera-pagina .miga {
+  font-size: 0.78rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: rgba(43, 29, 18, 0.6);
+}
+
+.cabecera-pagina .miga a {
+  color: var(--color-vino);
+}
+
+/* Variante con fotografía de fondo y velo oscuro */
+.cabecera-oscura {
+  background-size: cover;
+  background-position: center;
+  padding-block: clamp(4.5rem, 9vw, 7.5rem);
+}
+
+.cabecera-oscura::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(24, 15, 8, 0.66), rgba(24, 15, 8, 0.8));
+}
+
+.cabecera-oscura .container {
+  position: relative;
+}
+
+.cabecera-oscura .titulo-pagina {
+  color: var(--color-blanco);
+  text-shadow: 0 2px 30px rgba(0, 0, 0, 0.35);
+}
+
+.cabecera-oscura .miga {
+  color: rgba(244, 237, 221, 0.65);
+}
+
+.cabecera-oscura .miga a {
+  color: var(--color-miel);
+}
+
+.cabecera-oscura .texto-suave {
+  color: rgba(244, 237, 221, 0.8);
+}
+
+/* ---------- Sección oscura de la carta ---------- */
+
+.seccion-carta {
+  background-color: var(--color-tinta);
+  color: var(--color-crema);
+  padding-top: clamp(2.8rem, 5vw, 4.2rem);
+}
+
+/* ---------- Navegación rápida por categorías ---------- */
+
+.navegacion-menu {
+  position: sticky;
+  top: 97px; /* cintillo + barra de navegación */
+  z-index: 900;
+  background-color: rgba(28, 19, 11, 0.96);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px dashed rgba(244, 237, 221, 0.2);
+}
+
+.navegacion-menu .pista-navegacion {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding-block: 0.85rem;
+  scrollbar-width: none;
+}
+
+.navegacion-menu .pista-navegacion::-webkit-scrollbar {
+  display: none;
+}
+
+.chip-menu {
+  flex-shrink: 0;
+  border: 1px solid rgba(244, 237, 221, 0.35);
+  background-color: transparent;
+  color: rgba(244, 237, 221, 0.85);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  padding: 0.5rem 1.15rem;
+  white-space: nowrap;
+  transition: all var(--transicion-suave);
+}
+
+.chip-menu:hover {
+  border-color: var(--color-miel);
+  color: var(--color-miel);
+}
+
+.chip-menu.activo {
+  background-color: var(--color-vino);
+  border-color: var(--color-vino);
+  color: var(--color-crema-claro);
+}
+
+/* ---------- Grupo de categoría ---------- */
+
+.grupo-menu {
+  scroll-margin-top: 160px;
+  margin-bottom: clamp(4rem, 8vw, 6.5rem);
+}
+
+.cabecera-grupo {
+  display: flex;
+  align-items: baseline;
+  gap: 1.3rem;
+  margin-bottom: 0.8rem;
+}
+
+.cabecera-grupo .numero-grupo {
+  font-family: var(--fuente-titulos);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--color-miel);
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+}
+
+.cabecera-grupo h2 {
+  font-size: clamp(1.7rem, 3vw, 2.3rem);
+  color: var(--color-crema);
+  margin: 0;
+  white-space: nowrap;
+}
+
+.cabecera-grupo::after {
+  content: "";
+  flex: 1;
+  border-top: 1px dashed rgba(244, 237, 221, 0.22);
+  transform: translateY(-6px);
+}
+
+.descripcion-grupo {
+  color: rgba(244, 237, 221, 0.62);
+  max-width: 44rem;
+  margin-bottom: 2.2rem;
+}
+
+/* Fotografía + lista */
+.cuerpo-grupo {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: clamp(1.8rem, 4vw, 3.2rem);
+  align-items: start;
+}
+
+.grupo-invertido .cuerpo-grupo {
+  grid-template-columns: 1fr 360px;
+}
+
+.foto-grupo {
+  position: sticky;
+  top: 150px;
+  margin: 0;
+  border-radius: var(--radio-suave);
+  overflow: hidden;
+  box-shadow: 0 24px 50px -20px rgba(0, 0, 0, 0.8);
+}
+
+.grupo-invertido .foto-grupo {
+  order: 2;
+}
+
+.foto-grupo img {
+  display: block;
+  width: 100%;
+  height: 430px;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.foto-grupo:hover img {
+  transform: scale(1.04);
+}
+
+.foto-grupo figcaption {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  right: 12px;
+  background-color: rgba(28, 19, 11, 0.78);
+  backdrop-filter: blur(4px);
+  color: var(--color-crema);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 0.55rem 0.9rem;
+  border-radius: var(--radio-suave);
+  text-align: center;
+}
+
+/* ---------- Platillos ---------- */
+
+.platillo {
+  padding: 1rem 0.9rem;
+  border-radius: var(--radio-suave);
+  transition: background-color var(--transicion-suave);
+}
+
+.platillo + .platillo {
+  border-top: 1px dashed rgba(244, 237, 221, 0.14);
+}
+
+.platillo:hover {
+  background-color: rgba(244, 237, 221, 0.06);
+}
+
+.platillo .encabezado-platillo {
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+}
+
+.platillo .nombre-platillo {
+  font-family: var(--fuente-titulos);
+  font-size: 1.22rem;
+  font-weight: 600;
+  color: var(--color-crema);
+  transition: color var(--transicion-suave);
+}
+
+.platillo:hover .nombre-platillo {
+  color: var(--color-miel);
+}
+
+.platillo .insignia {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-crema-claro);
+  background-color: var(--color-monarca);
+  border-radius: 999px;
+  padding: 0.2rem 0.62rem;
+  white-space: nowrap;
+  transform: translateY(-2px);
+}
+
+.platillo .insignia.nuevo {
+  background-color: var(--color-vino);
+}
+
+.platillo .relleno-puntos {
+  flex: 1;
+  border-bottom: 2px dotted rgba(244, 237, 221, 0.3);
+  transform: translateY(-4px);
+  min-width: 2rem;
+}
+
+.platillo .precio {
+  font-family: var(--fuente-titulos);
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: var(--color-miel);
+  white-space: nowrap;
+}
+
+.platillo .descripcion-platillo {
+  font-size: 0.92rem;
+  color: rgba(244, 237, 221, 0.6);
+  margin: 0.25rem 0 0;
+  max-width: 34rem;
+}
+
+/* Variantes: tamaño, presentación o acompañamiento */
+.platillo .variantes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.65rem;
+}
+
+.platillo .variante {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.45rem;
+  border: 1px dashed rgba(244, 237, 221, 0.32);
+  border-radius: 999px;
+  padding: 0.22rem 0.75rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(244, 237, 221, 0.72);
+  transition: border-color var(--transicion-suave);
+}
+
+.platillo .variante strong {
+  font-family: var(--fuente-titulos);
+  font-size: 0.85rem;
+  color: var(--color-miel);
+}
+
+.platillo:hover .variante {
+  border-color: rgba(192, 138, 62, 0.6);
+}
+
+/* Nota al pie del menú */
+.nota-menu {
+  border: var(--borde-punteado);
+  border-radius: var(--radio-suave);
+  padding: 1.2rem 1.5rem;
+  font-size: 0.92rem;
+  color: rgba(43, 29, 18, 0.7);
+  background-color: var(--color-crema-claro);
+}
+
+.seccion-carta .nota-menu {
+  border: 1px dashed rgba(244, 237, 221, 0.3);
+  background-color: rgba(244, 237, 221, 0.05);
+  color: rgba(244, 237, 221, 0.75);
+}
+
+.seccion-carta .nota-menu strong {
+  color: var(--color-crema);
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 991.98px) {
+  .cuerpo-grupo,
+  .grupo-invertido .cuerpo-grupo {
+    grid-template-columns: 1fr;
+  }
+
+  .grupo-invertido .foto-grupo {
+    order: 0;
+  }
+
+  .foto-grupo {
+    position: static;
+  }
+
+  .foto-grupo img {
+    height: 240px;
+  }
+
+  .grupo-menu {
+    scroll-margin-top: 150px;
+  }
+
+  .navegacion-menu {
+    top: 94px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  /* En pantallas chicas el cintillo superior ocupa dos líneas */
+  .navegacion-menu {
+    top: 106px;
+  }
+
+  .grupo-menu {
+    scroll-margin-top: 165px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .cabecera-grupo {
+    gap: 0.8rem;
+  }
+
+  .cabecera-grupo::after {
+    display: none;
+  }
+
+  .cabecera-grupo h2 {
+    white-space: normal;
+  }
+
+  .platillo {
+    padding-inline: 0.4rem;
+  }
+
+  .foto-grupo img {
+    height: 200px;
+  }
+}

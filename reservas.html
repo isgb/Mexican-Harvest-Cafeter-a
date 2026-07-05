@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reservaciones | Mexican Harvest · Cafés Especiales</title>
+  <meta name="description" content="Reserva tu mesa en Mexican Harvest: brunch, barra de métodos y sobremesa en cualquiera de nuestras cuatro sucursales en Puebla.">
+  <link rel="canonical" href="https://www.mexicanharvest.mx/reservas.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_MX">
+  <meta property="og:title" content="Reservaciones | Mexican Harvest">
+  <meta property="og:description" content="Aparta tu mesa para brunch o barra de métodos en Puebla.">
+  <meta property="og:image" content="assets/images/patio-casona.jpg">
+
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#8a2f2b">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/cards.css">
+  <link rel="stylesheet" href="css/menu.css">
+  <link rel="stylesheet" href="css/forms.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- ====== Navegación ====== -->
+  <header class="barra-navegacion">
+    <p class="cintillo-superior mb-0">Lunes a domingo · 8:00 am — 10:30 pm · <span>Top 50 The Best Coffee Shops México 2025</span></p>
+    <nav class="navbar navbar-expand-lg container" aria-label="Navegación principal">
+      <a class="marca-logo navbar-brand" href="index.html" aria-label="Mexican Harvest, ir al inicio">
+        <svg viewBox="0 0 64 48" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M32 10v30"/><path d="M32 10c-3-4-5-6-8-8M32 10c3-4 5-6 8-8"/>
+          <path d="M31 16C21 6 7 6 5 13c-2 7 10 15 26 11z"/><path d="M33 16c10-10 24-10 26-3 2 7-10 15-26 11z"/>
+          <path d="M31 31c-8-2-16 2-14 7 1 5 10 3 14-3z"/><path d="M33 31c8-2 16 2 14 7-1 5-10 3-14-3z"/>
+        </svg>
+        <span class="marca-texto">
+          <span class="marca-nombre">Mexican Harvest</span>
+          <span class="marca-lema">Cosecha de México</span>
+        </span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu-navegacion" aria-controls="menu-navegacion" aria-expanded="false" aria-label="Abrir menú de navegación">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="menu-navegacion">
+        <ul class="navbar-nav align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="menu.html">Menú</a></li>
+          <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+          <li class="nav-item"><a class="boton-carta-pdf" href="assets/carta-mexican-harvest.pdf" download="Carta-Mexican-Harvest.pdf" aria-label="Descargar la carta en PDF">DESCARGAR MENÚ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v11M7 10l5 5 5-5"/><path d="M4 19h16"/></svg></a></li>
+          <li class="nav-item"><a class="boton boton-vino boton-reservar-nav" href="reservas.html">Reservar mesa</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ====== Cabecera ====== -->
+    <section class="cabecera-pagina cabecera-oscura" style="background-image: url('assets/images/patio-casona.jpg');">
+      <div class="container">
+        <p class="miga revelar"><a href="index.html">Inicio</a> · Reservaciones</p>
+        <h1 class="titulo-pagina revelar">Tu mesa te <em style="font-style: italic; color: var(--color-miel); font-weight: 400;">espera</em></h1>
+        <p class="texto-suave mx-auto revelar revelar-retraso-1" style="max-width: 36rem;">
+          Aparta lugar para el brunch, una cata en la barra de métodos
+          o una sobremesa larga con café de por medio.
+        </p>
+      </div>
+    </section>
+
+    <!-- ====== Formulario de reservas ====== -->
+    <section class="seccion pt-0" aria-label="Formulario de reservación">
+      <div class="container">
+        <div class="row g-5 align-items-start">
+          <div class="col-lg-7">
+            <div class="tarjeta-formulario revelar">
+              <h2 class="mb-4" style="font-size: 1.6rem;">Datos de la reservación</h2>
+
+              <p class="aviso-exito" id="aviso-reservas" role="status">
+                ¡Solicitud registrada! Confírmala por WhatsApp con el botón verde
+                y en minutos te respondemos. 🦋
+              </p>
+
+              <form id="formulario-reservas" novalidate>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="campo-formulario">
+                      <label for="reserva-nombre">Nombre completo</label>
+                      <input type="text" id="reserva-nombre" name="nombre" autocomplete="name" required>
+                      <p class="mensaje-error">Escribe tu nombre, por favor.</p>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="campo-formulario">
+                      <label for="reserva-telefono">Teléfono</label>
+                      <input type="tel" id="reserva-telefono" name="telefono" autocomplete="tel" required>
+                      <p class="mensaje-error">Necesitamos un teléfono para confirmar.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="campo-formulario">
+                  <label for="reserva-sucursal">Sucursal</label>
+                  <select id="reserva-sucursal" name="sucursal" required>
+                    <option value="">Elige una sucursal…</option>
+                    <option>Centro Comercial El Triángulo</option>
+                    <option>2 Sur 907 · Centro Histórico</option>
+                    <option>3 Poniente esq. 5 Sur 105 · Centro</option>
+                    <option>Blvrd. Esteban de Antuñano 1479 · Luz Obrera</option>
+                  </select>
+                  <p class="mensaje-error">Elige la sucursal que quieres visitar.</p>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="campo-formulario">
+                      <label for="reserva-fecha">Fecha</label>
+                      <input type="date" id="reserva-fecha" name="fecha" required>
+                      <p class="mensaje-error">Elige la fecha de tu visita.</p>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="campo-formulario">
+                      <label for="reserva-hora">Hora</label>
+                      <input type="time" id="reserva-hora" name="hora" min="08:00" max="22:00" required>
+                      <p class="mensaje-error">Elige una hora entre 8:00 y 22:00.</p>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="campo-formulario">
+                      <label for="reserva-personas">Personas</label>
+                      <select id="reserva-personas" name="personas" required>
+                        <option value="">¿Cuántos son?</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>Más de 6</option>
+                      </select>
+                      <p class="mensaje-error">Indica cuántas personas vienen.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="campo-formulario">
+                  <label for="reserva-comentarios">Comentarios (opcional)</label>
+                  <textarea id="reserva-comentarios" name="comentarios" rows="4" placeholder="Celebraciones, silla para bebé, mesa en terraza…"></textarea>
+                </div>
+
+                <div class="d-flex flex-wrap gap-3">
+                  <button type="submit" class="boton boton-vino">Solicitar reservación</button>
+                  <a id="confirmar-whatsapp" class="boton boton-contorno d-none" href="#" target="_blank" rel="noopener">
+                    Confirmar por WhatsApp
+                  </a>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <div class="col-lg-5">
+            <figure class="figura-editorial revelar revelar-retraso-1">
+              <img src="assets/images/patio-casona.jpg" alt="Patio de casona del Centro Histórico con mesas de Mexican Harvest" loading="lazy" width="800" height="1000">
+              <figcaption>Sobremesa en el Centro Histórico</figcaption>
+            </figure>
+
+            <div class="nota-menu mt-4 revelar revelar-retraso-2">
+              <strong>Bueno saber:</strong>
+              <ul class="mb-0 mt-2 ps-3">
+                <li>Sostenemos la mesa 15 minutos después de la hora reservada.</li>
+                <li>Para grupos de más de 6 personas escríbenos directo por WhatsApp.</li>
+                <li>El brunch se sirve de 8:00 am a 2:00 pm en Centro Histórico.</li>
+                <li>Pet friendly en terrazas. 🐾</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ====== Pie de página ====== -->
+  <footer class="pie-pagina">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-4">
+          <p class="lema-pie">“Tostamos y servimos para México y el mundo los mejores granos mexicanos.”</p>
+          <div class="redes-pie">
+            <a href="https://www.instagram.com/mexican.harvest/" target="_blank" rel="noopener" aria-label="Instagram de Mexican Harvest">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            </a>
+            <a href="https://www.facebook.com/MexicanHarvest" target="_blank" rel="noopener" aria-label="Facebook de Mexican Harvest">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 8h3V5h-3c-2.2 0-4 1.8-4 4v2H7v3h3v7h3v-7h3l1-3h-4V9c0-.6.4-1 1-1z"/></svg>
+            </a>
+            <a href="https://wa.me/522204284792" target="_blank" rel="noopener" aria-label="WhatsApp de Mexican Harvest">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm5.3 14.1c-.2.7-1.3 1.3-1.9 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-2.9-1.3-4.8-4.2-5-4.4-.1-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.4l.9 2.1c.1.2.1.4 0 .6l-.4.6-.5.6c-.2.2-.3.4-.1.7.2.3.8 1.3 1.7 2.1 1.2 1.1 2.2 1.4 2.5 1.6.3.1.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2 .9c.3.2.5.3.6.4 0 .2 0 .6-.2 1.2z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="col-6 col-lg-2">
+          <p class="titulo-columna">Explora</p>
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="menu.html">Menú</a></li>
+            <li><a href="nosotros.html">Nosotros</a></li>
+            <li><a href="reservas.html">Reservas</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-3">
+          <p class="titulo-columna">Sucursales</p>
+          <ul>
+            <li>Centro Comercial El Triángulo</li>
+            <li>2 Sur 907 · Centro Histórico</li>
+            <li>3 Poniente esq. 5 Sur 105 · Centro</li>
+            <li>Blvrd. E. de Antuñano 1479 · Luz Obrera</li>
+          </ul>
+        </div>
+        <div class="col-lg-3">
+          <p class="titulo-columna">Contacto</p>
+          <ul>
+            <li><a href="https://wa.me/522204284792" target="_blank" rel="noopener">WhatsApp · 220 428 4792</a></li>
+            <li><a href="mailto:hola@mexicanharvest.mx">hola@mexicanharvest.mx</a></li>
+            <li>L–D · 8:00 am — 10:30 pm</li>
+            <li>Puebla, México</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="marca-agua-pie" aria-hidden="true"><span>MEXICAN HARVEST</span></div>
+
+      <div class="linea-final">
+        <p class="mb-0">© <span data-anio-actual>2026</span> Mexican Harvest · Cafés Especiales. Todos los derechos reservados.</p>
+        <p class="mb-0">Cosecha de México 🦋 Puebla</p>
+      </div>
+    </div>
+  </footer>
+
+  <button type="button" class="volver-arriba" aria-label="Volver arriba">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+  <a class="boton-whatsapp" href="https://wa.me/522204284792?text=Hola%20Mexican%20Harvest%20%F0%9F%A6%8B" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm5.3 14.1c-.2.7-1.3 1.3-1.9 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-2.9-1.3-4.8-4.2-5-4.4-.1-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.4l.9 2.1c.1.2.1.4 0 .6l-.4.6-.5.6c-.2.2-.3.4-.1.7.2.3.8 1.3 1.7 2.1 1.2 1.1 2.2 1.4 2.5 1.6.3.1.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2 .9c.3.2.5.3.6.4 0 .2 0 .6-.2 1.2z"/></svg>
+  </a>
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/navbar.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/contact.js"></script>
+  <script src="js/reservas.js"></script>
+</body>
+</html>

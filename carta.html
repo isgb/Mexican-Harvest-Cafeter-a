@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8">
+  <title>Carta — Mexican Harvest</title>
+  <!-- Documento de impresión: origen del PDF descargable (assets/carta-mexican-harvest.pdf).
+       Para regenerarlo, ver instrucciones en el README o usar Edge headless:
+       msedge --headless --print-to-pdf="assets/carta-mexican-harvest.pdf" carta.html -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --crema: #f4eddd;
+      --crema-suave: rgba(244, 237, 221, 0.68);
+      --tinta: #2b1d12;
+      --tinta-profunda: #221610;
+      --vino: #8a2f2b;
+      --miel: #c08a3e;
+      --monarca: #43604c;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    @page { size: A4; margin: 0; }
+
+    html, body {
+      background: #1c130b;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    body {
+      font-family: "Karla", sans-serif;
+      color: var(--crema);
+    }
+
+    .pagina {
+      position: relative;
+      width: 210mm;
+      height: 297mm;
+      margin: 0 auto;
+      padding: 13mm 14mm;
+      /* Fondo plano: los degradados se rasterizan al imprimir
+         y hacen el PDF pesado y lento de navegar */
+      background: var(--tinta);
+      overflow: hidden;
+      break-after: page;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pagina:last-child { break-after: auto; }
+
+    /* Marco punteado de toda la página */
+    .pagina::before {
+      content: "";
+      position: absolute;
+      inset: 7mm;
+      border: 1px dashed rgba(244, 237, 221, 0.25);
+      border-radius: 3mm;
+      pointer-events: none;
+    }
+
+    .contenido { position: relative; flex: 1; padding: 6mm 7mm 0; display: flex; flex-direction: column; }
+
+    /* ---------- Portada (página 1) ---------- */
+
+    .encabezado-carta { text-align: center; margin-bottom: 8mm; }
+
+    .encabezado-carta svg.mariposa { width: 21mm; height: auto; color: var(--crema); }
+
+    .marca {
+      font-family: "Fraunces", serif;
+      font-size: 26pt;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      margin-top: 2mm;
+    }
+
+    .lema {
+      font-size: 7pt;
+      font-weight: 700;
+      letter-spacing: 0.55em;
+      text-transform: uppercase;
+      color: var(--miel);
+      margin-top: 1.2mm;
+    }
+
+    .titulo-carta {
+      font-family: "Fraunces", serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 17pt;
+      color: var(--crema-suave);
+      margin-top: 4mm;
+    }
+
+    .insignia-top {
+      display: inline-block;
+      margin-top: 3.5mm;
+      border: 1px solid rgba(192, 138, 62, 0.65);
+      color: var(--miel);
+      border-radius: 999px;
+      font-size: 6.5pt;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      padding: 1.6mm 5mm;
+    }
+
+    /* Encabezado pequeño de páginas 2 y 3 */
+    .encabezado-mini {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4mm;
+      margin-bottom: 7mm;
+    }
+
+    .encabezado-mini svg { width: 10mm; height: auto; color: var(--crema); }
+
+    .encabezado-mini .nombre-mini {
+      font-family: "Fraunces", serif;
+      font-size: 11pt;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+    }
+
+    .encabezado-mini .lema-mini {
+      font-size: 5.5pt;
+      font-weight: 700;
+      letter-spacing: 0.45em;
+      text-transform: uppercase;
+      color: var(--miel);
+    }
+
+    /* ---------- Categorías ---------- */
+
+    .grupo { margin-bottom: 7.5mm; }
+
+    .titulo-grupo {
+      display: flex;
+      align-items: baseline;
+      gap: 3.5mm;
+      margin-bottom: 1.6mm;
+    }
+
+    .titulo-grupo .numero {
+      font-family: "Fraunces", serif;
+      font-style: italic;
+      font-size: 8.5pt;
+      color: var(--miel);
+    }
+
+    .titulo-grupo h2 {
+      font-family: "Fraunces", serif;
+      font-size: 14pt;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .titulo-grupo::after {
+      content: "";
+      flex: 1;
+      border-top: 1px dashed rgba(244, 237, 221, 0.28);
+      transform: translateY(-1mm);
+    }
+
+    .descripcion-grupo {
+      font-size: 8pt;
+      color: var(--crema-suave);
+      margin-bottom: 3.5mm;
+    }
+
+    .lista-platillos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 9mm;
+      row-gap: 3.2mm;
+    }
+
+    .platillo { break-inside: avoid; }
+
+    .linea-platillo {
+      display: flex;
+      align-items: baseline;
+      gap: 2mm;
+    }
+
+    .nombre {
+      font-family: "Fraunces", serif;
+      font-size: 10.5pt;
+      font-weight: 600;
+    }
+
+    .puntos {
+      flex: 1;
+      border-bottom: 1.2pt dotted rgba(244, 237, 221, 0.35);
+      transform: translateY(-1mm);
+      min-width: 4mm;
+    }
+
+    .precio {
+      font-family: "Fraunces", serif;
+      font-size: 10.5pt;
+      font-weight: 700;
+      color: var(--miel);
+      white-space: nowrap;
+    }
+
+    .descripcion {
+      font-size: 7.6pt;
+      line-height: 1.45;
+      color: var(--crema-suave);
+      margin-top: 0.8mm;
+      max-width: 62mm;
+    }
+
+    .variantes { margin-top: 1.4mm; display: flex; flex-wrap: wrap; gap: 1.6mm; }
+
+    .variante {
+      border: 0.8pt dashed rgba(244, 237, 221, 0.35);
+      border-radius: 999px;
+      padding: 0.6mm 2.6mm;
+      font-size: 6.4pt;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--crema-suave);
+    }
+
+    .variante b { color: var(--miel); font-family: "Fraunces", serif; font-size: 7.4pt; }
+
+    .etiqueta-item {
+      display: inline-block;
+      font-size: 5.6pt;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--crema);
+      background: var(--monarca);
+      border-radius: 999px;
+      padding: 0.5mm 2.2mm;
+      transform: translateY(-0.6mm);
+    }
+
+    .etiqueta-item.nuevo { background: var(--vino); }
+
+    /* ---------- Banda de fotografías ---------- */
+
+    .banda-fotos {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 3mm;
+      margin-top: auto;
+      padding-top: 5mm;
+    }
+
+    .banda-fotos figure {
+      border-radius: 2.5mm;
+      overflow: hidden;
+      height: 34mm;
+    }
+
+    .banda-fotos img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ---------- Pie de la carta (página 3) ---------- */
+
+    .pie-carta {
+      margin-top: auto;
+      border-top: 1px dashed rgba(244, 237, 221, 0.28);
+      padding-top: 5mm;
+      text-align: center;
+    }
+
+    .pie-carta .frase {
+      font-family: "Fraunces", serif;
+      font-style: italic;
+      font-size: 10.5pt;
+      color: var(--crema);
+      margin-bottom: 4mm;
+    }
+
+    .sucursales {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2mm 8mm;
+      text-align: left;
+      font-size: 7.6pt;
+      color: var(--crema-suave);
+      max-width: 150mm;
+      margin: 0 auto 4mm;
+    }
+
+    .sucursales b { color: var(--crema); font-size: 7.8pt; }
+
+    .contacto-carta {
+      font-size: 7.4pt;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--miel);
+    }
+
+    .nota-precios {
+      margin-top: 3mm;
+      font-size: 6.4pt;
+      color: rgba(244, 237, 221, 0.45);
+      letter-spacing: 0.08em;
+    }
+
+    /* Numeración de página */
+    .folio {
+      position: absolute;
+      bottom: 3.2mm;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-size: 6pt;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(244, 237, 221, 0.4);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============ PÁGINA 1 ============ -->
+  <section class="pagina">
+    <div class="contenido">
+      <header class="encabezado-carta">
+        <svg class="mariposa" viewBox="0 0 64 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M32 10v30"/><path d="M32 10c-3-4-5-6-8-8M32 10c3-4 5-6 8-8"/>
+          <path d="M31 16C21 6 7 6 5 13c-2 7 10 15 26 11z"/><path d="M33 16c10-10 24-10 26-3 2 7-10 15-26 11z"/>
+          <path d="M31 31c-8-2-16 2-14 7 1 5 10 3 14-3z"/><path d="M33 31c8-2 16 2 14 7-1 5-10 3-14-3z"/>
+        </svg>
+        <h1 class="marca">MEXICAN HARVEST</h1>
+        <p class="lema">Cosecha de México · Cafés Especiales</p>
+        <p class="titulo-carta">La carta de la casa</p>
+        <span class="insignia-top">★ Top 50 · The Best Coffee Shops México 2025</span>
+      </header>
+
+      <section class="grupo">
+        <div class="titulo-grupo"><span class="numero">N.º 01</span><h2>Barra de espresso</h2></div>
+        <p class="descripcion-grupo">Todas las bebidas salen con la cosecha de la semana. Leche de avena, almendra o coco sin costo extra.</p>
+        <div class="lista-platillos">
+          <article class="platillo">
+            <div class="linea-platillo"><span class="nombre">Espresso</span><span class="puntos"></span><span class="precio">$42</span></div>
+            <p class="descripcion">Doble, 60 ml. Pídelo corto si lo quieres más intenso.</p>
+          </article>
+          <article class="platillo">
+            <div class="linea-platillo"><span class="nombre">Cortado</span><span class="puntos"></span><span class="precio">$48</span></div>
+            <p class="descripcion">Espresso con un toque de leche texturizada.</p>
+          </article>
+          <article class="platillo">
+            <div class="linea-platillo"><span class="nombre">Americano</span><span class="puntos"></span><span class="precio">$50</span></div>
+          </article>
+          <article class="platillo">
+            <div class="linea-platillo"><span class="nombre">Cappuccino</span><span class="puntos"></span><span class="precio">$62</span></div>
+            <p class="descripcion">8 oz, espuma fina. Con canela solo si la pides.</p>
+          </article>
+          <article class="platillo">
+            <div class="linea-platillo"><span class="nombre">Flat white</span><span class="puntos"></span><span class="precio">$68</span></div>
+            <p class="descripcion">Doble espresso, 6 oz de leche a punto de seda.</p>
+          </article>
+          <article class="platillo">
+            <div class="linea-platillo"><span class="nombre">Latte</span><span class="puntos"></span><span class="precio">desde $65</span></div>
+            <p class="descripcion">Va bien con la panadería de la casa.</p>
+            <div class="variantes"><span class="variante">12 oz <b>$65</b></span><span class="variante">16 oz <b>$75</b></span></div>
+          </article>
+          <article class="platillo">
+            <div class="linea-platillo"><span class="nombre">Latte de mazapán</span><span class="etiqueta-item">Favorito</span><span class="puntos"></span><span class="precio">$75</span></div>
+            <p class="descripcion">Nuestro favorito para empezar: espresso, leche y mazapán deshecho.</p>
+          </article>
+          <article class="platillo">
+            <div class="linea-platillo"><span class="nombre">Mocha de cacao criollo</span><span class="puntos"></span><span class="precio">desde $78</span></div>
+            <p class="descripcion">Cacao de Tabasco molido en piedra, nada de jarabes.</p>
+            <div class="variantes"><span class="variante">12 oz <b>$78</b></span><span class="variante">16 oz <b>$88</b></span></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="grupo">
+        <div class="titulo-grupo"><span class="numero">N.º 02</span><h2>Métodos de filtrado</h2></div>
+        <p class="descripcion-grupo">Pregunta qué cosecha está en la tolva del molino esta semana; el barista te recomienda el método.</p>
+        <div class="lista-platillos">
+          <article class="platillo">
+            <div class="linea-platillo"><span class="nombre">V60</span><span class="puntos"></span><span class="precio">$80</span></div>
+            <p class="descripcion">Taza limpia, acidez brillante. Molido medio-fino y vertido en espiral.</p>
+          </article>
+          <article class="platillo">
+            <div class="linea-platillo"><span class="nombre">Origami</span><span class="etiqueta-item">Favorito</span><span class="puntos"></span><span class="precio">$85</span></div>
+            <p class="descripcion">Parecido al V60 pero más dulce; nuestro dripper consentido.</p>
+          </article>
+          <article class="platillo">
+            <div class="linea-platillo"><span class="nombre">Chemex</span><span class="puntos"></span><span class="precio">desde $95</span></div>
+            <p class="descripcion">Filtrado grueso, taza elegante.</p>
+            <div class="variantes"><span class="variante">Individual <b>$95</b></span><span class="variante">Para dos <b>$150</b></span></div>
+          </article>
+          <article class="platillo">
+            <div class="linea-platillo"><span class="nombre">Prensa francesa</span><span class="puntos"></span><span class="precio">$75</span></div>
+            <p class="descripcion">Inmersión completa, cuerpo denso. Para quien viene del café de olla.</p>
+          </article>
+          <article class="platillo">
+            <div class="linea-platillo"><span class="nombre">Aeropress</span><span class="puntos"></span><span class="precio">$75</span></div>
+            <p class="descripcion">Rápido, dulce y redondo. Ideal si tienes prisa pero no tanta.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="grupo">
+        <div class="titulo-grupo"><span class="numero">N.º 03</span><h2>Otras bebidas calientes</h2></div>
+        <p class="descripcion-grupo">Para las tardes frías del Centro Histórico.</p>
+        <div class="lista-platillos">
+          <article class="platillo">
+            <div class="linea-platillo"><span class="nombre">Chocolate de metate</span><span class="puntos"></span><span class="precio">desde $62</span></div>
+            <p class="descripcion">Tablilla oaxaqueña batida como debe ser.</p>
+            <div class="variantes"><span class="variante">Con agua <b>$62</b></span><span class="variante">Con leche <b>$68</b></span></div>
+          </article>
+          <article class="platillo">
+            <div class="linea-platillo"><span class="nombre">Matcha latte</span><span class="puntos"></span><span class="precio">$80</span></div>
+            <p class="descripcion">Grado ceremonial, batido a mano.</p>
+          </article>
+          <article class="platillo">
+            <div class="linea-platillo"><span class="nombre">Chai de la casa</span><span class="puntos"></span><span class="precio">$72</span></div>
+            <p class="descripcion">Especias cocidas aquí, sin concentrados.</p>
+          </article>
+          <article class="platillo">
+            <div class="linea-platillo"><span class="nombre">Tisana de cáscara de café</span><span class="etiqueta-item nuevo">Nuevo</span><span class="puntos"></span><span class="precio">$58</span></div>
+            <p class="descripcion">La cereza del grano que tostamos, con piloncillo. Casi no la tiene nadie.</p>
+          </article>
+        </div>
+      </section>
+    </div>
+    <p class="folio">Mexican Harvest · Carta · 1 de 3</p>
+  </section>
+
+  <!-- ============ PÁGINA 2 ============ -->
+  <section class="pagina">
+    <div class="contenido">
+      <header class="encabezado-mini">
+        <svg viewBox="0 0 64 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M32 10v30"/><path d="M32 10c-3-4-5-6-8-8M32 10c3-4 5-6 8-8"/>
+          <path d="M31 16C21 6 7 6 5 13c-2 7 10 15 26 11z"/><path d="M33 16c10-10 24-10 26-3 2 7-10 15-26 11z"/>
+          <path d="M31 31c-8-2-16 2-14 7 1 5 10 3 14-3z"/><path d="M33 31c8-2 16 2 14 7-1 5-10 3-14-3z"/>
+        </svg>
+        <div>
+          <p class="nombre-mini">MEXICAN HARVEST</p>
+          <p class="lema-mini">Cosecha de México</p>
+        </div>
+      </header>
+
+      <section class="grupo">
+        <div class="titulo-grupo"><span class="numero">N.º 04</span><h2>Bebidas frías</h2></div>
+        <p class="descripcion-grupo">Coldbrew en mano y tu día mejora.</p>
+        <div class="lista-platillos">
+          <article class="platillo">
+            <div class="linea-platillo"><span class="nombre">Coldbrew</span><span class="etiqueta-item">Favorito</span><span class="puntos"></span><span class="precio">desde $68</span></div>
+            <p class="descripcion">Maceración de 18 a 24 horas. Poca acidez, dulzor natural.</p>
+            <div class="variantes"><span class="variante">12 oz <b>$68</b></span><span class="variante">16 oz <b>$80</b></span></div>
+          </article>
+          <article class="platillo">
+            <div class="linea-platillo"><span class="nombre">Nitro brew</span><span class="puntos"></span><span class="precio">$85</span></div>
+            <p class="descripcion">Coldbrew con nitrógeno servido en draft. Espumoso, sabor a stout ligera.</p>
+          </article>
+          <article class="platillo">
+            <div class="linea-platillo"><span class="nombre">Coldbrew horchata</span><span class="etiqueta-item nuevo">Nuevo</span><span class="puntos"></span><span class="precio">$82</span></div>
+            <p class="descripcion">Mitad horchata de la casa, mitad coldbrew. Suena raro, funciona.</p>
+          </article>
+          <article class="platillo">
+            <div class="linea-platillo"><span class="nombre">Espresso tonic</span><span class="puntos"></span><span class="precio">$80</span></div>
+            <p class="descripcion">Tónica, hielo, doble espresso y twist de naranja.</p>
+          </article>
+          <article class="platillo">
+            <div class="linea-platillo"><span class="nombre">Latte frío</span><span class="puntos"></span><span class="precio">$68</span></div>
+          </article>
+          <article class="platillo">
+            <div class="linea-platillo"><span class="nombre">Matcha frío</span><span class="puntos"></span><span class="precio">$80</span></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="grupo">
+        <div class="titulo-grupo"><span class="numero">N.º 05</span><h2>Brunch</h2></div>
+        <p class="descripcion-grupo">Lunes a domingo de 8:00 a 14:00 en Centro Histórico. Todo sale con pan de nuestra boulangerie.</p>
+        <div class="lista-platillos">
+          <article class="platillo">
+            <div class="linea-platillo"><span class="nombre">Chilaquiles verdes o rojos</span><span class="etiqueta-item">Favorito</span><span class="puntos"></span><span class="precio">desde $110</span></div>
+            <p class="descripcion">Totopos hechos aquí, crema, queso fresco y cebolla morada.</p>
+            <div class="variantes"><span class="variante">Solos <b>$110</b></span><span class="variante">Con huevo <b>$125</b></span><span class="variante">Con pollo <b>$135</b></span></div>
+          </article>
+          <article class="platillo">
+            <div class="linea-platillo"><span class="nombre">Molletes</span><span class="puntos"></span><span class="precio">$92</span></div>
+            <p class="descripcion">Bolillo de la casa, frijoles de la olla, queso gratinado y pico de gallo.</p>
+          </article>
+          <article class="platillo">
+            <div class="linea-platillo"><span class="nombre">Toast de aguacate</span><span class="puntos"></span><span class="precio">$105</span></div>
+            <p class="descripcion">Masa madre, aguacate machacado, rabanito y ajonjolí tostado.</p>
+          </article>
+          <article class="platillo">
+            <div class="linea-platillo"><span class="nombre">Concha francesa</span><span class="etiqueta-item nuevo">Nuevo</span><span class="puntos"></span><span class="precio">$108</span></div>
+            <p class="descripcion">Nuestra concha de vainilla en versión pan francés, con fruta de temporada.</p>
+          </article>
+          <article class="platillo">
+            <div class="linea-platillo"><span class="nombre">Huevos al comal</span><span class="puntos"></span><span class="precio">$95</span></div>
+            <p class="descripcion">Al gusto, con frijoles y tortillas recién hechas.</p>
+          </article>
+          <article class="platillo">
+            <div class="linea-platillo"><span class="nombre">Jugo de naranja</span><span class="puntos"></span><span class="precio">$52</span></div>
+            <p class="descripcion">Exprimido al momento, 16 oz.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="grupo">
+        <div class="titulo-grupo"><span class="numero">N.º 06</span><h2>Para acompañar</h2></div>
+        <p class="descripcion-grupo">Cocina sencilla y honesta, del mercado a la mesa.</p>
+        <div class="lista-platillos">
+          <article class="platillo">
+            <div class="linea-platillo"><span class="nombre">Baguette de serrano</span><span class="puntos"></span><span class="precio">$120</span></div>
+            <p class="descripcion">Jamón serrano, manchego, arúgula y aceite de oliva.</p>
+          </article>
+          <article class="platillo">
+            <div class="linea-platillo"><span class="nombre">Panini tres quesos</span><span class="puntos"></span><span class="precio">$108</span></div>
+            <p class="descripcion">Manchego, panela y de cabra, con mermelada de chipotle.</p>
+          </article>
+          <article class="platillo">
+            <div class="linea-platillo"><span class="nombre">Ensalada de temporada</span><span class="puntos"></span><span class="precio">$98</span></div>
+            <p class="descripcion">Lo que traiga el mercado esa semana, con vinagreta de miel.</p>
+          </article>
+          <article class="platillo">
+            <div class="linea-platillo"><span class="nombre">Pizza del fin de semana</span><span class="puntos"></span><span class="precio">$145</span></div>
+            <p class="descripcion">Solo sábados y domingos, horneada al momento con amigos invitados.</p>
+          </article>
+        </div>
+      </section>
+
+      <div class="banda-fotos">
+        <figure><img src="assets/images/pdf/coldbrew-pared-verde.jpg" alt=""></figure>
+        <figure><img src="assets/images/pdf/hero-barista-vertiendo.jpg" alt=""></figure>
+        <figure><img src="assets/images/pdf/postre-cheesecake.jpg" alt=""></figure>
+      </div>
+    </div>
+    <p class="folio">Mexican Harvest · Carta · 2 de 3</p>
+  </section>
+
+  <!-- ============ PÁGINA 3 ============ -->
+  <section class="pagina">
+    <div class="contenido">
+      <header class="encabezado-mini">
+        <svg viewBox="0 0 64 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M32 10v30"/><path d="M32 10c-3-4-5-6-8-8M32 10c3-4 5-6 8-8"/>
+          <path d="M31 16C21 6 7 6 5 13c-2 7 10 15 26 11z"/><path d="M33 16c10-10 24-10 26-3 2 7-10 15-26 11z"/>
+          <path d="M31 31c-8-2-16 2-14 7 1 5 10 3 14-3z"/><path d="M33 31c8-2 16 2 14 7-1 5-10 3-14-3z"/>
+        </svg>
+        <div>
+          <p class="nombre-mini">MEXICAN HARVEST</p>
+          <p class="lema-mini">Cosecha de México</p>
+        </div>
+      </header>
+
+      <section class="grupo">
+        <div class="titulo-grupo"><span class="numero">N.º 07</span><h2>Postres y pan dulce</h2></div>
+        <p class="descripcion-grupo">Horneado diario de nuestra boulangerie. Lo que se acaba, se acabó.</p>
+        <div class="lista-platillos">
+          <article class="platillo">
+            <div class="linea-platillo"><span class="nombre">Cheesecake de mango</span><span class="etiqueta-item">Favorito</span><span class="puntos"></span><span class="precio">$88</span></div>
+            <p class="descripcion">Con coulis de mango y trazo de cacao. El de las fotos.</p>
+          </article>
+          <article class="platillo">
+            <div class="linea-platillo"><span class="nombre">Roll de canela</span><span class="puntos"></span><span class="precio">$62</span></div>
+            <p class="descripcion">Glaseado apenas dulce, nuez de la región.</p>
+          </article>
+          <article class="platillo">
+            <div class="linea-platillo"><span class="nombre">Croissant</span><span class="puntos"></span><span class="precio">$52</span></div>
+            <p class="descripcion">Laminado de 48 horas con mantequilla europea.</p>
+          </article>
+          <article class="platillo">
+            <div class="linea-platillo"><span class="nombre">Concha de vainilla</span><span class="puntos"></span><span class="precio">$40</span></div>
+          </article>
+          <article class="platillo">
+            <div class="linea-platillo"><span class="nombre">Panqué garibaldi</span><span class="puntos"></span><span class="precio">$45</span></div>
+          </article>
+          <article class="platillo">
+            <div class="linea-platillo"><span class="nombre">Pancitos de otoño</span><span class="etiqueta-item nuevo">Nuevo</span><span class="puntos"></span><span class="precio">$55</span></div>
+            <p class="descripcion">Solo en octubre y noviembre: pan de muerto y amigos de temporada.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="grupo">
+        <div class="titulo-grupo"><span class="numero">N.º 08</span><h2>Café en grano · 250 g</h2></div>
+        <p class="descripcion-grupo">Tueste fechado en cada bolsa. Te lo molemos según tu método o déjalo en grano.</p>
+        <div class="lista-platillos">
+          <article class="platillo">
+            <div class="linea-platillo"><span class="nombre">Atitlán, Oaxaca · Black honey</span><span class="etiqueta-item nuevo">Nuevo</span><span class="puntos"></span><span class="precio">$260</span></div>
+            <p class="descripcion">Chocolate, mantequilla, manzana, pera y toronja.</p>
+          </article>
+          <article class="platillo">
+            <div class="linea-platillo"><span class="nombre">Sierra Norte, Puebla · Lavado</span><span class="puntos"></span><span class="precio">$240</span></div>
+            <p class="descripcion">Caramelo, nuez, cítricos dulces. El de todos los días.</p>
+          </article>
+          <article class="platillo">
+            <div class="linea-platillo"><span class="nombre">Frailesca, Chiapas · Natural</span><span class="puntos"></span><span class="precio">$250</span></div>
+            <p class="descripcion">Frutos rojos, panela, taza jugosa.</p>
+          </article>
+          <article class="platillo">
+            <div class="linea-platillo"><span class="nombre">Mezcla Monarca</span><span class="etiqueta-item">Favorito</span><span class="puntos"></span><span class="precio">desde $220</span></div>
+            <p class="descripcion">Nuestra mezcla para espresso y moka. Tueste medio, a prueba de leches.</p>
+            <div class="variantes"><span class="variante">250 g <b>$220</b></span><span class="variante">500 g <b>$410</b></span></div>
+          </article>
+        </div>
+      </section>
+
+      <footer class="pie-carta">
+        <p class="frase">“Aromas que despiertan tus sueños, sabores que te llevan al cielo.”</p>
+        <div class="sucursales">
+          <p><b>El Triángulo</b><br>Centro Comercial El Triángulo, Puebla</p>
+          <p><b>Centro Histórico</b><br>2 Sur 907, Centro Histórico, Puebla</p>
+          <p><b>3 Poniente</b><br>Av. 3 Poniente esq. 5 Sur 105, Centro</p>
+          <p><b>Luz Obrera</b><br>Blvrd. Esteban de Antuñano 1479</p>
+        </div>
+        <p class="contacto-carta">L–D · 8:00 — 22:30 · WhatsApp 220 428 4792 · @mexican.harvest</p>
+        <p class="nota-precios">Precios en pesos mexicanos, incluyen IVA. Sujetos a cambio según cosecha y temporada.</p>
+      </footer>
+    </div>
+    <p class="folio">Mexican Harvest · Carta · 3 de 3</p>
+  </section>
+
+</body>
+</html>

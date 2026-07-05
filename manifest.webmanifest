@@ -1,0 +1,18 @@
+{
+  "name": "Mexican Harvest | Cafés Especiales",
+  "short_name": "Mexican Harvest",
+  "description": "Cafetería de especialidad en Puebla. Tostamos y servimos los mejores granos mexicanos.",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#f4eddd",
+  "theme_color": "#8a2f2b",
+  "lang": "es-MX",
+  "icons": [
+    {
+      "src": "assets/icons/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

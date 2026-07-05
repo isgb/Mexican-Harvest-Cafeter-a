@@ -1,0 +1,179 @@
+/* ============================================
+   Mexican Harvest — Barra de navegación
+   ============================================ */
+
+.barra-navegacion {
+  position: sticky;
+  top: 0;
+  z-index: 1100;
+  background-color: rgba(28, 19, 11, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(244, 237, 221, 0.14);
+  transition: box-shadow var(--transicion-suave), background-color var(--transicion-suave);
+}
+
+.barra-navegacion.con-sombra {
+  box-shadow: 0 12px 30px -18px rgba(0, 0, 0, 0.7);
+  background-color: rgba(28, 19, 11, 0.98);
+}
+
+/* Cintillo superior con horario */
+.cintillo-superior {
+  background-color: var(--color-vino);
+  color: var(--color-crema);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 0.45rem 1rem;
+}
+
+.cintillo-superior span {
+  color: var(--color-miel);
+}
+
+.barra-navegacion .navbar {
+  padding-block: 0.9rem;
+}
+
+/* Logotipo */
+.marca-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--color-crema);
+}
+
+.marca-logo:hover,
+.marca-logo:focus {
+  color: var(--color-crema);
+}
+
+.marca-logo svg {
+  width: 42px;
+  height: auto;
+}
+
+.marca-texto {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.05;
+}
+
+.marca-nombre {
+  font-family: var(--fuente-titulos);
+  font-weight: 700;
+  font-size: 1.18rem;
+  letter-spacing: 0.04em;
+}
+
+.marca-lema {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--color-miel);
+}
+
+/* Enlaces */
+.barra-navegacion .nav-link {
+  font-size: 0.86rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(244, 237, 221, 0.88);
+  padding-inline: 1rem;
+  position: relative;
+}
+
+.barra-navegacion .nav-link:hover,
+.barra-navegacion .nav-link:focus {
+  color: var(--color-crema);
+}
+
+.barra-navegacion .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 1rem;
+  right: 1rem;
+  bottom: 0.2rem;
+  height: 2px;
+  background-color: var(--color-miel);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transicion-suave);
+}
+
+.barra-navegacion .nav-link:hover::after,
+.barra-navegacion .nav-link.activo::after {
+  transform: scaleX(1);
+}
+
+.barra-navegacion .nav-link.activo {
+  color: var(--color-miel);
+}
+
+.boton-reservar-nav {
+  margin-left: 0.8rem;
+}
+
+/* Botón de descarga de la carta en PDF */
+.boton-carta-pdf {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-left: 0.8rem;
+  border: 1px solid rgba(244, 237, 221, 0.45);
+  border-radius: 999px;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(244, 237, 221, 0.88);
+  white-space: nowrap;
+  transition: all var(--transicion-suave);
+}
+
+.boton-carta-pdf svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.boton-carta-pdf:hover {
+  border-color: var(--color-miel);
+  color: var(--color-miel);
+  transform: translateY(-1px);
+}
+
+/* Hamburguesa personalizada */
+.navbar-toggler {
+  border: 1px solid rgba(244, 237, 221, 0.5);
+  border-radius: var(--radio-suave);
+  padding: 0.45rem 0.6rem;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3E%3Cpath stroke='%23f4eddd' stroke-linecap='round' stroke-width='2' d='M4 8h22M4 15h22M4 22h22'/%3E%3C/svg%3E");
+}
+
+@media (max-width: 991.98px) {
+  .barra-navegacion .navbar-collapse {
+    border-top: 1px dashed rgba(244, 237, 221, 0.25);
+    margin-top: 0.9rem;
+    padding-top: 0.9rem;
+  }
+
+  .barra-navegacion .nav-link {
+    padding-block: 0.55rem;
+  }
+
+  .boton-reservar-nav {
+    margin: 0.6rem 0 0.3rem;
+  }
+}

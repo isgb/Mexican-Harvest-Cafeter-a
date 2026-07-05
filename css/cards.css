@@ -1,0 +1,793 @@
+/* ============================================
+   Mexican Harvest — Tarjetas y secciones de contenido
+   ============================================ */
+
+/* ---------- Historia (foto + texto) ---------- */
+
+.figura-editorial {
+  position: relative;
+  margin: 0;
+}
+
+.figura-editorial img {
+  width: 100%;
+  height: 100%;
+  min-height: 340px;
+  max-height: 560px;
+  object-fit: cover;
+  border-radius: var(--radio-suave);
+  box-shadow: var(--sombra-carta);
+}
+
+.figura-editorial figcaption {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  background-color: rgba(43, 29, 18, 0.82);
+  color: var(--color-crema);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+}
+
+/* Foto secundaria sobrepuesta */
+.figura-doble {
+  position: relative;
+  padding-bottom: 4.5rem;
+  padding-right: 3rem;
+}
+
+.figura-doble .foto-secundaria {
+  position: absolute;
+  right: -6px;
+  bottom: 0;
+  width: 46%;
+  border: 6px solid var(--color-crema);
+  border-radius: var(--radio-suave);
+  box-shadow: var(--sombra-carta);
+  transform: rotate(3deg);
+}
+
+/* ---------- Tarjetas de métodos de extracción ---------- */
+
+.tarjeta-metodo {
+  height: 100%;
+  border: var(--borde-tinta);
+  border-radius: var(--radio-suave);
+  background-color: var(--color-crema-claro);
+  padding: 2rem 1.7rem;
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--transicion-suave), box-shadow var(--transicion-suave);
+}
+
+.tarjeta-metodo:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--sombra-carta);
+}
+
+.tarjeta-metodo .numero-metodo {
+  font-family: var(--fuente-titulos);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--color-miel);
+  letter-spacing: 0.1em;
+}
+
+.tarjeta-metodo svg {
+  width: 52px;
+  height: 52px;
+  color: var(--color-vino);
+  margin-block: 1rem 1.2rem;
+}
+
+.tarjeta-metodo h3 {
+  font-size: 1.35rem;
+  margin-bottom: 0.6rem;
+}
+
+.tarjeta-metodo p {
+  font-size: 0.95rem;
+  margin-bottom: 0;
+  color: rgba(43, 29, 18, 0.72);
+}
+
+.tarjeta-metodo .nota-taza {
+  display: inline-block;
+  margin-top: 1rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-monarca);
+  border: 1px dashed currentColor;
+  border-radius: 999px;
+  padding: 0.3rem 0.8rem;
+}
+
+/* ---------- Características alrededor de una imagen ---------- */
+
+.caracteristica {
+  display: flex;
+  gap: 1.1rem;
+  margin-bottom: 2.4rem;
+}
+
+.caracteristica:last-child {
+  margin-bottom: 0;
+}
+
+.caracteristica svg {
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+  color: var(--color-vino);
+}
+
+.caracteristica h3 {
+  font-size: 1.15rem;
+  margin-bottom: 0.35rem;
+}
+
+.caracteristica p {
+  font-size: 0.93rem;
+  color: rgba(43, 29, 18, 0.7);
+  margin-bottom: 0;
+}
+
+/* Columna izquierda: ícono a la derecha, texto alineado al final */
+.columna-caracteristicas-izquierda .caracteristica {
+  flex-direction: row-reverse;
+  text-align: end;
+}
+
+.figura-central {
+  margin: 0;
+  text-align: center;
+}
+
+.figura-central img {
+  width: 100%;
+  max-width: 380px;
+  height: 460px;
+  object-fit: cover;
+  border-radius: 200px 200px var(--radio-suave) var(--radio-suave);
+  border: 6px solid var(--color-crema-claro);
+  box-shadow: var(--sombra-carta);
+}
+
+@media (max-width: 991.98px) {
+  .columna-caracteristicas-izquierda .caracteristica {
+    flex-direction: row;
+    text-align: start;
+  }
+
+  .figura-central img {
+    height: 380px;
+  }
+}
+
+/* ---------- Rejilla bento de destacados ---------- */
+
+.rejilla-bento {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas:
+    "a a b c"
+    "a a d e";
+  grid-auto-rows: 235px;
+  gap: 1rem;
+}
+
+.rejilla-bento .bento-a { grid-area: a; }
+.rejilla-bento .bento-b { grid-area: b; }
+.rejilla-bento .bento-c { grid-area: c; }
+.rejilla-bento .bento-d { grid-area: d; }
+.rejilla-bento .bento-e { grid-area: e; }
+
+.rejilla-bento .tarjeta-producto {
+  min-height: 100%;
+  height: 100%;
+}
+
+/* Tarjeta de texto dentro del mosaico */
+.tila-promo {
+  background-color: var(--color-tinta);
+  color: var(--color-crema);
+  border-radius: var(--radio-suave);
+  padding: 1.5rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.8rem;
+}
+
+.tila-promo .etiqueta {
+  color: var(--color-miel);
+  margin-bottom: 0;
+  font-size: 0.68rem;
+}
+
+.tila-promo h3 {
+  color: var(--color-crema);
+  font-size: 1.3rem;
+  margin-bottom: 0.3rem;
+}
+
+.tila-promo p {
+  font-size: 0.85rem;
+  color: rgba(244, 237, 221, 0.72);
+  margin-bottom: 0;
+}
+
+.tila-promo a {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-miel);
+}
+
+.tila-promo a:hover {
+  color: var(--color-crema);
+}
+
+@media (max-width: 991.98px) {
+  .rejilla-bento {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "a a"
+      "b c"
+      "d e";
+    grid-auto-rows: 220px;
+  }
+
+  .rejilla-bento .bento-a {
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .rejilla-bento {
+    grid-template-columns: 1fr;
+    grid-template-areas: "a" "b" "c" "d" "e";
+    grid-auto-rows: auto;
+  }
+
+  .rejilla-bento .tarjeta-producto {
+    min-height: 260px;
+  }
+}
+
+/* ---------- Banner fotográfico de ancho completo ---------- */
+
+.banner-fotografico {
+  position: relative;
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: var(--color-crema);
+  padding-block: clamp(4rem, 8vw, 6rem);
+}
+
+.banner-fotografico::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(24, 15, 8, 0.88) 20%, rgba(24, 15, 8, 0.35) 100%);
+}
+
+.banner-fotografico .container {
+  position: relative;
+}
+
+.banner-fotografico .etiqueta {
+  color: var(--color-miel);
+}
+
+.banner-fotografico .titulo-seccion {
+  color: var(--color-crema);
+}
+
+.banner-fotografico .titulo-seccion em {
+  color: var(--color-miel);
+}
+
+.banner-fotografico p {
+  color: rgba(244, 237, 221, 0.82);
+}
+
+.banner-fotografico .boton-contorno {
+  border-color: rgba(244, 237, 221, 0.7);
+  color: var(--color-crema);
+}
+
+.banner-fotografico .boton-contorno:hover {
+  background-color: var(--color-crema);
+  color: var(--color-tinta);
+}
+
+/* El fondo fijo se siente pesado en móviles */
+@media (hover: none), (max-width: 767.98px) {
+  .banner-fotografico {
+    background-attachment: scroll;
+  }
+}
+
+/* ---------- Destacados / productos ---------- */
+
+.tarjeta-producto {
+  position: relative;
+  border-radius: var(--radio-suave);
+  overflow: hidden;
+  height: 100%;
+  min-height: 420px;
+  display: flex;
+  align-items: flex-end;
+  color: var(--color-crema);
+}
+
+.tarjeta-producto img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.tarjeta-producto:hover img {
+  transform: scale(1.06);
+}
+
+.tarjeta-producto .velo {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(28, 18, 10, 0.88) 8%, rgba(28, 18, 10, 0.1) 55%);
+}
+
+.tarjeta-producto .contenido {
+  position: relative;
+  padding: 1.6rem;
+  width: 100%;
+}
+
+.tarjeta-producto h3 {
+  color: var(--color-crema);
+  font-size: 1.45rem;
+  margin-bottom: 0.35rem;
+}
+
+.tarjeta-producto p {
+  font-size: 0.92rem;
+  color: rgba(244, 237, 221, 0.85);
+  margin-bottom: 0;
+}
+
+.tarjeta-producto .precio-desde {
+  display: inline-block;
+  margin-bottom: 0.7rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-miel);
+}
+
+/* ---------- Testimonios ---------- */
+
+.tarjeta-testimonio {
+  height: 100%;
+  border: var(--borde-punteado);
+  border-radius: var(--radio-suave);
+  padding: 2rem 1.8rem;
+  background-color: rgba(250, 246, 236, 0.55);
+}
+
+.tarjeta-testimonio .estrellas {
+  color: var(--color-miel);
+  letter-spacing: 0.2em;
+  margin-bottom: 0.9rem;
+}
+
+.tarjeta-testimonio blockquote {
+  font-family: var(--fuente-titulos);
+  font-style: italic;
+  font-size: 1.12rem;
+  line-height: 1.5;
+  margin-bottom: 1.2rem;
+}
+
+.tarjeta-testimonio .autor {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-vino);
+}
+
+/* ---------- Galería ---------- */
+
+.rejilla-galeria {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.9rem;
+}
+
+.rejilla-galeria a {
+  position: relative;
+  display: block;
+  border-radius: var(--radio-suave);
+  overflow: hidden;
+}
+
+.rejilla-galeria img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.rejilla-galeria a:hover img {
+  transform: scale(1.07);
+}
+
+.rejilla-galeria a::after {
+  content: "+";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 2.2rem;
+  color: var(--color-crema);
+  background-color: rgba(43, 29, 18, 0.45);
+  opacity: 0;
+  transition: opacity var(--transicion-suave);
+}
+
+.rejilla-galeria a:hover::after {
+  opacity: 1;
+}
+
+.rejilla-galeria .alta {
+  grid-row: span 2;
+}
+
+.rejilla-galeria .alta img {
+  height: 100%;
+  min-height: 100%;
+}
+
+/* Lightbox propio */
+.caja-luz {
+  position: fixed;
+  inset: 0;
+  z-index: 1500;
+  background-color: rgba(24, 15, 8, 0.94);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.caja-luz.abierta {
+  display: flex;
+}
+
+.caja-luz img {
+  max-width: min(92vw, 900px);
+  max-height: 84vh;
+  border-radius: var(--radio-suave);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+}
+
+.caja-luz .pie-caja-luz {
+  position: absolute;
+  bottom: 1.6rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--color-crema);
+  font-size: 0.85rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.caja-luz button {
+  position: absolute;
+  background: none;
+  border: 1px solid rgba(244, 237, 221, 0.5);
+  color: var(--color-crema);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 1.3rem;
+  transition: background-color var(--transicion-suave);
+}
+
+.caja-luz button:hover {
+  background-color: rgba(244, 237, 221, 0.15);
+}
+
+.caja-luz .cerrar-caja {
+  top: 1.4rem;
+  right: 1.4rem;
+}
+
+.caja-luz .anterior-caja {
+  left: 1.4rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.caja-luz .siguiente-caja {
+  right: 1.4rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* ---------- Sucursales / ubicación ---------- */
+
+.tarjeta-sucursal {
+  height: 100%;
+  border: none;
+  border-left: 3px solid var(--color-vino);
+  background-color: var(--color-crema-claro);
+  border-radius: 0 var(--radio-suave) var(--radio-suave) 0;
+  padding: 1.5rem 1.4rem;
+  font-family: inherit;
+  color: inherit;
+  cursor: pointer;
+  transition: transform var(--transicion-suave), box-shadow var(--transicion-suave),
+    background-color var(--transicion-suave), border-color var(--transicion-suave);
+}
+
+.tarjeta-sucursal:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--sombra-carta);
+}
+
+/* Sucursal seleccionada en el mapa */
+.tarjeta-sucursal.activa {
+  background-color: var(--color-tinta);
+  border-left-color: var(--color-miel);
+}
+
+.tarjeta-sucursal.activa h3 {
+  color: var(--color-crema);
+}
+
+.tarjeta-sucursal.activa h3::after {
+  content: " 📍";
+  font-size: 0.85em;
+}
+
+.tarjeta-sucursal.activa p {
+  color: rgba(244, 237, 221, 0.75);
+}
+
+.tarjeta-sucursal.activa .horario-sucursal {
+  color: var(--color-miel);
+}
+
+.tarjeta-sucursal h3 {
+  font-size: 1.12rem;
+  margin-bottom: 0.4rem;
+}
+
+.tarjeta-sucursal p {
+  font-size: 0.92rem;
+  color: rgba(43, 29, 18, 0.72);
+  margin-bottom: 0.6rem;
+}
+
+.tarjeta-sucursal .horario-sucursal {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-monarca);
+}
+
+/* ---------- FAQ ---------- */
+
+.acordeon-faq .accordion-item {
+  background-color: transparent;
+  border: none;
+  border-bottom: var(--borde-punteado);
+}
+
+.acordeon-faq .accordion-button {
+  background-color: transparent;
+  font-family: var(--fuente-titulos);
+  font-size: 1.18rem;
+  font-weight: 600;
+  color: var(--color-tinta);
+  padding-block: 1.3rem;
+  box-shadow: none;
+}
+
+.acordeon-faq .accordion-button:not(.collapsed) {
+  color: var(--color-vino);
+}
+
+.acordeon-faq .accordion-body {
+  padding-top: 0;
+  color: rgba(43, 29, 18, 0.75);
+}
+
+/* ---------- Boletín ---------- */
+
+.bloque-boletin {
+  border: var(--borde-tinta);
+  border-radius: var(--radio-suave);
+  background-color: var(--color-crema-claro);
+  padding: clamp(2rem, 5vw, 3.5rem);
+  position: relative;
+  overflow: hidden;
+}
+
+.bloque-boletin .mariposa-fondo {
+  position: absolute;
+  right: -30px;
+  bottom: -40px;
+  width: 220px;
+  color: rgba(138, 47, 43, 0.1);
+  transform: rotate(-12deg);
+}
+
+.formulario-boletin {
+  display: flex;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+}
+
+.formulario-boletin input {
+  flex: 1 1 240px;
+}
+
+/* ---------- Valores (nosotros) ---------- */
+
+.tarjeta-valor {
+  height: 100%;
+  padding: 1.8rem 1.5rem;
+  border: var(--borde-punteado);
+  border-radius: var(--radio-suave);
+  text-align: center;
+}
+
+.tarjeta-valor svg {
+  width: 44px;
+  height: 44px;
+  color: var(--color-vino);
+  margin-bottom: 1rem;
+}
+
+.tarjeta-valor h3 {
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+}
+
+.tarjeta-valor p {
+  font-size: 0.92rem;
+  color: rgba(43, 29, 18, 0.72);
+  margin-bottom: 0;
+}
+
+/* ---------- Línea de proceso del café ---------- */
+
+.paso-proceso {
+  position: relative;
+  padding-left: 3.4rem;
+  padding-bottom: 2.4rem;
+}
+
+.paso-proceso::before {
+  content: "";
+  position: absolute;
+  left: 17px;
+  top: 40px;
+  bottom: 0;
+  border-left: var(--borde-punteado);
+}
+
+.paso-proceso:last-child::before {
+  display: none;
+}
+
+.paso-proceso .numero-paso {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--color-vino);
+  color: var(--color-vino);
+  display: grid;
+  place-items: center;
+  font-family: var(--fuente-titulos);
+  font-style: italic;
+  font-size: 0.95rem;
+  background-color: var(--color-crema-claro);
+}
+
+.paso-proceso h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.4rem;
+}
+
+.paso-proceso p {
+  color: rgba(43, 29, 18, 0.75);
+  margin-bottom: 0;
+  max-width: 40rem;
+}
+
+/* ---------- Equipo ---------- */
+
+.tarjeta-equipo {
+  text-align: center;
+}
+
+.tarjeta-equipo img {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  border-radius: 160px 160px var(--radio-suave) var(--radio-suave);
+  margin-bottom: 1.1rem;
+  box-shadow: var(--sombra-carta);
+}
+
+.tarjeta-equipo h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.2rem;
+}
+
+.tarjeta-equipo p {
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-vino);
+}
+
+/* ---------- Instagram ---------- */
+
+.rejilla-instagram {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.6rem;
+}
+
+.rejilla-instagram a {
+  position: relative;
+  border-radius: var(--radio-suave);
+  overflow: hidden;
+  display: block;
+}
+
+.rejilla-instagram img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.rejilla-instagram a:hover img {
+  transform: scale(1.08);
+}
+
+@media (max-width: 991.98px) {
+  .rejilla-galeria {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .rejilla-instagram {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

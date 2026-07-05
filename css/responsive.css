@@ -1,0 +1,93 @@
+/* ============================================
+   Mexican Harvest — Ajustes responsivos
+   (los componentes ya son fluidos; aquí van
+   solo correcciones puntuales por tamaño)
+   ============================================ */
+
+@media (max-width: 1199.98px) {
+  .rejilla-instagram img {
+    height: 140px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  body {
+    font-size: 1rem;
+  }
+
+  .hero {
+    min-height: 88vh;
+  }
+
+  .hero-datos {
+    gap: 1.4rem;
+  }
+
+  .rejilla-galeria {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .rejilla-galeria img {
+    height: 180px;
+  }
+
+  .figura-doble {
+    padding-right: 0;
+  }
+
+  .figura-doble .foto-secundaria {
+    right: 10px;
+    width: 52%;
+  }
+
+  .marco-mapa iframe {
+    height: 300px;
+  }
+
+  .tarjeta-equipo img {
+    height: 300px;
+  }
+
+  .caja-luz .anterior-caja,
+  .caja-luz .siguiente-caja {
+    top: auto;
+    bottom: 1.4rem;
+    transform: none;
+  }
+
+  .caja-luz .anterior-caja {
+    left: 25%;
+  }
+
+  .caja-luz .siguiente-caja {
+    right: 25%;
+  }
+
+  .caja-luz .pie-caja-luz {
+    display: none;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .cintillo-superior {
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+  }
+
+  .hero-acciones .boton {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .rejilla-instagram {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .volver-arriba {
+    right: 1rem;
+  }
+
+  .boton-whatsapp {
+    right: 1rem;
+  }
+}

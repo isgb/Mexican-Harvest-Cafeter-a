@@ -1,0 +1,30 @@
+# ===== Sistema operativo =====
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# ===== Editores e IDEs =====
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ===== Node (si algún día se instalan dependencias) =====
+node_modules/
+package-lock.json
+npm-debug.log*
+
+# ===== Claude Code (uso local, no se publica) =====
+CLAUDE.md
+.claude/
+
+# ===== Archivos temporales y de respaldo =====
+*.log
+*.tmp
+*.bak
+*.old
+~$*
+
+# ===== Capturas y pruebas locales =====
+*-preview.png
+capturas/

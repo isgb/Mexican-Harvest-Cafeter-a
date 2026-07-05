@@ -1,0 +1,38 @@
+/* ============================================
+   Mexican Harvest — Variables de diseño
+   Paleta tomada del branding real:
+   tazas rojo vino, papel crema de sus carteles,
+   tinta espresso del logo, dorado del premio
+   Top 50 y verde de la pared del coldbrew.
+   ============================================ */
+
+:root {
+  /* Colores de marca */
+  --color-crema: #f4eddd;
+  --color-crema-claro: #faf6ec;
+  --color-crema-oscuro: #eae0c9;
+  --color-tinta: #2b1d12;
+  --color-cafe: #4a3423;
+  --color-cafe-suave: #6f5a43;
+  --color-vino: #8a2f2b;
+  --color-vino-oscuro: #6e2320;
+  --color-miel: #c08a3e;
+  --color-monarca: #43604c;
+  --color-blanco: #fffdf8;
+
+  /* Tipografía */
+  --fuente-titulos: "Fraunces", Georgia, serif;
+  --fuente-texto: "Karla", "Segoe UI", sans-serif;
+
+  /* Espaciado de secciones */
+  --seccion-espacio: clamp(4rem, 9vw, 7.5rem);
+
+  /* Bordes y sombras */
+  --radio-suave: 6px;
+  --borde-tinta: 1px solid rgba(43, 29, 18, 0.18);
+  --borde-punteado: 1px dashed rgba(43, 29, 18, 0.35);
+  --sombra-carta: 0 18px 40px -18px rgba(43, 29, 18, 0.35);
+
+  /* Transiciones */
+  --transicion-suave: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}

@@ -1,0 +1,255 @@
+/* ============================================
+   Mexican Harvest — Hero de pantalla completa
+   Foto de fondo con velo oscuro y texto centrado.
+   ============================================ */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: min(92vh, 880px);
+  color: var(--color-crema);
+}
+
+/* Fotografía de fondo con velo oscuro */
+.hero-fondo {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-fondo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+}
+
+.hero-fondo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(24, 15, 8, 0.55) 0%,
+    rgba(24, 15, 8, 0.6) 50%,
+    rgba(24, 15, 8, 0.88) 100%
+  );
+}
+
+.hero-contenido {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 52rem;
+  margin: auto;
+  padding: clamp(4rem, 9vw, 7rem) 1.2rem 0;
+}
+
+.hero-etiqueta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  border: 1px solid rgba(244, 237, 221, 0.4);
+  border-radius: 999px;
+  padding: 0.4rem 1.1rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--color-crema);
+  background-color: rgba(24, 15, 8, 0.35);
+  backdrop-filter: blur(4px);
+  margin-bottom: 1.6rem;
+}
+
+.hero-etiqueta svg {
+  width: 15px;
+  height: 15px;
+  color: var(--color-miel);
+}
+
+.hero-titulo {
+  font-size: clamp(2.7rem, 6vw, 4.8rem);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--color-blanco);
+  margin-bottom: 1.4rem;
+  text-shadow: 0 2px 30px rgba(0, 0, 0, 0.35);
+}
+
+.hero-titulo .linea-italica {
+  display: block;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--color-miel);
+}
+
+.hero-descripcion {
+  max-width: 36rem;
+  margin-inline: auto;
+  font-size: 1.12rem;
+  color: rgba(244, 237, 221, 0.88);
+  margin-bottom: 2.2rem;
+}
+
+.hero-acciones {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.9rem;
+  margin-bottom: 3rem;
+}
+
+/* Botón de contorno sobre foto oscura */
+.hero .boton-contorno {
+  border-color: rgba(244, 237, 221, 0.7);
+  color: var(--color-crema);
+}
+
+.hero .boton-contorno:hover {
+  background-color: var(--color-crema);
+  border-color: var(--color-crema);
+  color: var(--color-tinta);
+}
+
+/* Datos rápidos bajo los botones */
+.hero-datos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2.6rem;
+  padding-block: 1.6rem 2.6rem;
+  border-top: 1px dashed rgba(244, 237, 221, 0.35);
+}
+
+.hero-dato-numero {
+  font-family: var(--fuente-titulos);
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--color-crema);
+}
+
+.hero-dato-texto {
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(244, 237, 221, 0.65);
+}
+
+/* Sello circular girando */
+.hero-sello {
+  position: absolute;
+  right: clamp(1rem, 5vw, 4rem);
+  bottom: 110px;
+  z-index: 1;
+  width: 128px;
+  height: 128px;
+  color: var(--color-crema);
+}
+
+.hero-sello svg {
+  width: 100%;
+  height: 100%;
+  animation: girar-sello 22s linear infinite;
+}
+
+.hero-sello .sello-centro {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: var(--color-miel);
+}
+
+.hero-sello .sello-centro svg {
+  width: 44px;
+  height: 44px;
+  animation: none;
+}
+
+@keyframes girar-sello {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Mariposa decorativa flotando */
+.hero-mariposa {
+  position: absolute;
+  top: 14%;
+  left: 6%;
+  z-index: 1;
+  width: 54px;
+  color: rgba(244, 237, 221, 0.85);
+  animation: flotar 6s ease-in-out infinite;
+}
+
+@keyframes flotar {
+  0%, 100% { transform: translateY(0) rotate(-6deg); }
+  50% { transform: translateY(-14px) rotate(5deg); }
+}
+
+/* Cinta deslizante al pie del hero */
+.cinta-marquesina {
+  position: relative;
+  z-index: 1;
+  background-color: var(--color-vino);
+  color: var(--color-crema);
+  overflow: hidden;
+  padding-block: 0.85rem;
+  border-top: 1px solid var(--color-vino-oscuro);
+  border-bottom: 1px solid var(--color-vino-oscuro);
+}
+
+.cinta-pista {
+  display: flex;
+  gap: 3rem;
+  width: max-content;
+  animation: desplazar-cinta 30s linear infinite;
+}
+
+.cinta-pista span {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.cinta-pista span::after {
+  content: "✦";
+  color: var(--color-miel);
+  font-size: 0.9rem;
+}
+
+@keyframes desplazar-cinta {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cinta-pista,
+  .hero-sello svg,
+  .hero-mariposa {
+    animation: none;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .hero-sello {
+    display: none;
+  }
+
+  .hero-mariposa {
+    top: 9%;
+    right: 6%;
+    left: auto;
+  }
+}
